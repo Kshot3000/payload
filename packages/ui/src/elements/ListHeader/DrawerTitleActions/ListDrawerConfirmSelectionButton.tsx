@@ -17,9 +17,19 @@ export function ListDrawerConfirmSelectionButton() {
     onBulkSelect?.(selected)
   }, [onBulkSelect, selected])
 
+  if (typeof onBulkSelect !== 'function') {
+    return null
+  }
+
   return (
-    <Button disabled={count === 0} margin={false} onClick={handleConfirm} size="medium">
-      {t('general:select')}
+    <Button
+      buttonStyle="primary"
+      disabled={count === 0}
+      margin={false}
+      onClick={handleConfirm}
+      size="medium"
+    >
+      {t('general:confirm')}
     </Button>
   )
 }
